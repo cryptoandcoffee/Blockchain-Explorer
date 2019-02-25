@@ -1,13 +1,15 @@
 {
   "name": "explorer",
-  "version": "1.6.1",
+  "version": "1.7.0",
   "private": true,
   "scripts": {
-    "start": "nodejs --stack-size=10000 ./bin/cluster",
-    "start-prod": " production=true node --stack-size=10000 ./bin/cluster",
+    "start": "node --stack-size=10000 ./bin/cluster",
+    "dev": "./node_modules/nodemon/bin/nodemon.js --stack-size=10000 ./bin/instance",
+    "index-update": "node --stack-size=10000 scripts/sync.js index update",
+    "cmc-update": "node --stack-size=10000 scripts/sync.js cmc",
     "stop": "kill -2 $(cat tmp/cluster.pid)",
     "test": "node ./node_modules/jasmine/bin/jasmine.js"
-  },
+},
   "dependencies": {
     "big-integer": "^1.6.41",
     "bignumber.js": "^4.1.0",
